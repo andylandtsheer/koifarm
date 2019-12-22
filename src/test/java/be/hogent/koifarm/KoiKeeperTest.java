@@ -3,6 +3,7 @@ package be.hogent.koifarm;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -71,6 +72,9 @@ public class KoiKeeperTest {
 		keeper.addKoi(koi4);
 		keeper.addKoi(koi5);
 		keeper.addKoi(koi6);
+
+		Collection<Koi> sortedSet = keeper.getKoisSortedByOrigin();
+		assertThat(sortedSet).containsExactly(koi1,koi2,koi5,koi3,koi4);
 
 	}
 
